@@ -1,6 +1,11 @@
 pipeline {
     agent any
-    stages {
+    stages {stage ('git') {
+            steps {
+                git branch: 'dev' 'staging', credentialsId: 'chitu1629', url: 'https://github.com/chitu1629/hello-world-spring-boot.git'
+            }
+        }
+    
         stage('Build') {
             steps {
                 sh 'mvn clean'
