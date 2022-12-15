@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
-            steps {
-                sh 'mvn -B -DskipTests clean package'
-            }
-        }
         stage ('git') {
             steps {
                 git branch: 'dev', credentialsId: 'chitu1629', url: 'https://github.com/chitu1629/hello-world-spring-boot.git'
